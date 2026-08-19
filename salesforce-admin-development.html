@@ -416,8 +416,9 @@
       <div class="lead-card">
         <h3>Book Your Free Demo</h3>
         <p class="sub">Fill in your details for a 1:1 consultation with our mentors.</p>
-        <form id="leadForm" novalidate>
+        <form id="leadForm" name="demo-lead" data-netlify="true" novalidate>
           <div class="sr-only" aria-live="polite" id="leadErrorLive"></div>
+          <input type="hidden" name="form-name" value="demo-lead" />
           <label class="sr-only" for="lead-name">Your name</label>
           <input type="text" id="lead-name" name="name" placeholder="Your Name" required autocomplete="name" aria-label="Your name" />
           <label class="sr-only" for="lead-email">Email address</label>
@@ -826,7 +827,8 @@
       <div class="fee-form-card">
         <h3>Book Your Counselling</h3>
         <p class="sub">Tell us about your goals and we&rsquo;ll reach out within 24 hours.</p>
-        <form id="enrollForm" novalidate>
+        <form id="enrollForm" name="enrollment" data-netlify="true" novalidate>
+          <input type="hidden" name="form-name" value="enrollment" />
           <label for="reg-name">Name *</label>
           <input type="text" id="reg-name" name="name" placeholder="Your full name" required autocomplete="name" />
           <p class="form-error" id="reg-name-err"></p>
@@ -1075,9 +1077,23 @@
           if (live) live.textContent = "Please fix the highlighted fields and try again.";
           return;
         }
-        noteEl.textContent = "\u2713 " + successMsg;
-        noteEl.style.color = "#027e46";
-        form.reset();
+        noteEl.style.color = "#556575";
+        noteEl.textContent = "Submitting...";
+        fetch("/", {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: new FormData(form)
+        })
+          .then((res) => {
+            if (!res.ok) throw new Error("Request failed");
+            noteEl.textContent = "\u2713 " + successMsg;
+            noteEl.style.color = "#027e46";
+            form.reset();
+          })
+          .catch(() => {
+            noteEl.textContent = "\u2717 Oops! Something went wrong. Please try again or reach us on WhatsApp.";
+            noteEl.style.color = "#d0342c";
+          });
       });
     }
     wireForm(document.getElementById("leadForm"), document.getElementById("leadNote"), "Thank you! Our team will contact you within 24 hours.");

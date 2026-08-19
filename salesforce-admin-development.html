@@ -84,6 +84,7 @@
     .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
     .logo { display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 800; color: var(--brand-dark); }
     .logo-mark { width: 36px; height: 36px; background: var(--gradient); border-radius: 10px; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 18px; }
+    .logo-img { height: 40px; width: auto; }
     .nav-links { display: flex; align-items: center; gap: 28px; }
     .nav-links a { font-size: 14.5px; font-weight: 600; color: var(--text-muted); transition: color 0.2s; }
     .nav-links a:hover { color: var(--brand); }
@@ -370,8 +371,7 @@
   <header class="header">
     <div class="container nav">
       <a href="#home" class="logo" aria-label="CloudDev Academy home">
-        <span class="logo-mark" aria-hidden="true">SF</span>
-        <span>CloudDev Academy</span>
+        <img src="logo.png" alt="CloudDev Academy logo" class="logo-img" />
       </a>
       <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
         <a href="#overview">Overview</a>
@@ -916,7 +916,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="logo"><span class="logo-mark" aria-hidden="true">SF</span><span>CloudDev Academy</span></div>
+          <div class="logo"><img src="logo.png" alt="CloudDev Academy logo" class="logo-img" /></div>
           <p class="about">Empowering the next generation of Salesforce admins and developers with practical, career-focused training that delivers measurable results.</p>
         </div>
         <div>

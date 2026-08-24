@@ -215,6 +215,10 @@
     .trainer-info p { font-size: 15px; color: var(--text-muted); margin-bottom: 14px; }
     .trainer-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
     .trainer-tags span { font-size: 13px; font-weight: 600; color: var(--brand-dark); background: var(--bg-light); border: 1px solid var(--border); border-radius: 999px; padding: 7px 14px; }
+    .mentor-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 16px 0; }
+    .mentor-stats .stat { background: var(--bg-light); border: 1px solid var(--border); border-radius: 12px; padding: 16px; text-align: center; }
+    .mentor-stats .stat strong { display: block; font-size: 20px; font-weight: 800; color: var(--brand-dark); margin-bottom: 4px; }
+    .mentor-stats .stat span { font-size: 12px; color: var(--text-muted); font-weight: 600; }
 
     /* Career support */
     .career { background: var(--bg-light); }
@@ -676,14 +680,26 @@
   <section class="trainer" id="trainer" aria-labelledby="trainer-title">
     <div class="container trainer-grid">
       <div class="trainer-photo"><img src="model.png" alt="Your Name Here - Senior Salesforce Architect" class="trainer-img" /></div>
-      <div class="trainer-info">
-<span class="section-label">Meet Your Mentor</span>
+<div class="trainer-info">
+        <span class="section-label">Meet Your Mentor</span>
         <p class="mentor-intro">Get to know the expert behind your learning journey. Our instructor brings years of real-world industry experience and a passion for teaching that makes every session practical, engaging, and impactful.</p>
-        <div class="trainer-tags">
-          <span>10+ yrs Industry Experience</span>
-          <span>Certified Platform Developer &amp; Admin</span>
-          <span>Ex-Implementation Consultant</span>
+        <h3 id="trainer-title">Mahabahu Behera (Bahu)</h3>
+        <p class="role">Founder, RevApex AI &bull; Salesforce Architect</p>
+        <p>
+          17+ years building enterprise software at Fortune 500 scale. Bahu has shipped systems trusted by global teams &mdash; and now teaches everyday people to build with AI the way he does. Direct, practical, no jargon.
+        </p>
+        <div class="mentor-stats">
+          <div class="stat"><strong>17+ yrs</strong><span>IT & Software Engineering</span></div>
+          <div class="stat"><strong>GE &bull; Wabtec</strong><span>Ex-Fortune 500 Experience</span></div>
+          <div class="stat"><strong>Architect</strong><span>Certified Salesforce Architect</span></div>
+          <div class="stat"><strong>RevApex AI</strong><span>Founder & Lead Instructor</span></div>
         </div>
+        <div class="trainer-tags">
+          <span>17+ yrs Industry Experience</span>
+          <span>Certified Salesforce Architect</span>
+          <span>Founder, RevApex AI</span>
+        </div>
+      </div>
       </div>
     </div>
   </section>

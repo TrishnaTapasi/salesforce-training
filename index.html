@@ -281,6 +281,10 @@
     .reg-form .btn { width: 100%; margin-top: 22px; }
     .form-error { color: #d0342c; font-size: 12.5px; margin-top: 4px; display: none; }
     .form-note { font-size: 14px; margin-top: 14px; text-align: center; min-height: 20px; }
+    .session-time { font-size: 15px; font-weight: 600; color: var(--brand-dark); margin: 12px 0 24px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { margin-bottom: 8px; }
+    .form-privacy { font-size: 12.5px; color: var(--text-muted); text-align: center; margin-top: 16px; }
 
     /* FAQ */
     .faq { background: var(--bg-white); }
@@ -356,6 +360,7 @@
       .trust-inner { flex-direction: column; align-items: flex-start; }
       .footer-grid { grid-template-columns: 1fr; }
       .module-body-inner { padding: 4px 20px 22px 20px; }
+      .form-row { grid-template-columns: 1fr; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -832,32 +837,57 @@
   <!-- Registration -->
   <section class="register" id="register" aria-labelledby="register-title">
     <div class="container center head">
-      <span class="section-label">Registration</span>
-      <h2 class="section-title" id="register-title">Request Your Free Demo</h2>
-      <p class="section-sub">Fill in your details and our team will reach out within 24 hours with schedule options.</p>
+      <span class="section-label">100% free &middot; live on Zoom</span>
+      <h2 class="section-title" id="register-title">Reserve your free seat for the live build</h2>
+      <p class="section-sub">Enter your details and you&rsquo;ll be registered instantly &mdash; your Zoom link lands in your inbox.</p>
+      <p class="session-time">Wednesday, August 19, 2026 &middot; 7:30 PM IST</p>
     </div>
     <div class="container">
       <form class="reg-form" id="enrollForm" name="registration" data-netlify="true" novalidate>
         <input type="hidden" name="form-name" value="registration" />
-        <label for="reg-name">Name *</label>
-        <input type="text" id="reg-name" name="name" placeholder="Your full name" required autocomplete="name" />
-        <p class="form-error" id="reg-name-err"></p>
-        <label for="reg-email">Email *</label>
-        <input type="email" id="reg-email" name="email" placeholder="you@example.com" required autocomplete="email" />
-        <p class="form-error" id="reg-email-err"></p>
-        <label for="reg-phone">Phone Number *</label>
-        <input type="tel" id="reg-phone" name="phone" placeholder="Your mobile number" required autocomplete="tel" pattern="[0-9+\-() ]{8,}" />
-        <p class="form-error" id="reg-phone-err"></p>
-        <label for="reg-plan">Select a plan *</label>
-        <select id="reg-plan" name="plan" required>
-          <option value="" disabled selected>Select a plan</option>
-          <option>Self-Paced</option>
-          <option>Mentored Live</option>
-          <option>Career Pro</option>
-        </select>
-        <label for="reg-query">Query</label>
-        <textarea id="reg-query" name="query" placeholder="Anything we should know?"></textarea>
-        <button type="submit" class="btn btn-primary">Submit Request</button>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="reg-fname">First name *</label>
+            <input type="text" id="reg-fname" name="first_name" placeholder="First name" required autocomplete="given-name" />
+            <p class="form-error" id="reg-fname-err"></p>
+          </div>
+          <div class="form-group">
+            <label for="reg-lname">Last name *</label>
+            <input type="text" id="reg-lname" name="last_name" placeholder="Last name" required autocomplete="family-name" />
+            <p class="form-error" id="reg-lname-err"></p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reg-email">Email *</label>
+          <input type="email" id="reg-email" name="email" placeholder="you@email.com" required autocomplete="email" />
+          <p class="form-error" id="reg-email-err"></p>
+        </div>
+        <div class="form-group">
+          <label for="reg-phone">Phone (WhatsApp) *</label>
+          <input type="tel" id="reg-phone" name="phone" placeholder="+91" required autocomplete="tel" pattern="[0-9+\-() ]{8,}" />
+          <p class="form-error" id="reg-phone-err"></p>
+        </div>
+        <div class="form-group">
+          <label for="reg-city">City *</label>
+          <input type="text" id="reg-city" name="city" placeholder="City" required autocomplete="address-level2" />
+          <p class="form-error" id="reg-city-err"></p>
+        </div>
+        <div class="form-group">
+          <label for="reg-role">I am a&hellip; *</label>
+          <select id="reg-role" name="role" required>
+            <option value="" disabled selected>Select&hellip;</option>
+            <option>Student / Fresher</option>
+            <option>Working Professional</option>
+            <option>Career Switcher</option>
+            <option>Salesforce Admin</option>
+            <option>Salesforce Developer</option>
+            <option>Business Analyst / QA</option>
+            <option>Other</option>
+          </select>
+          <p class="form-error" id="reg-role-err"></p>
+        </div>
+        <button type="submit" class="btn btn-primary">Reserve my free seat &rarr;</button>
+        <p class="form-privacy">We respect your privacy. No spam &mdash; just your Zoom link & reminders.</p>
         <p class="form-note" id="formNote" aria-live="polite"></p>
       </form>
     </div>

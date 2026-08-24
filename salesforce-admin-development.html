@@ -424,27 +424,32 @@
           <div class="stat"><h3>5-6 mo</h3><p>Course Duration</p></div>
         </div>
       </div>
-      <div class="lead-card">
-        <h3>Book Your Free Demo</h3>
-        <p class="sub">Fill in your details for a 1:1 consultation with our mentors.</p>
-        <form id="leadForm" name="demo-lead" data-netlify="true" novalidate>
-          <div class="sr-only" aria-live="polite" id="leadErrorLive"></div>
-          <input type="hidden" name="form-name" value="demo-lead" />
-          <label class="sr-only" for="lead-name">Your name</label>
-          <input type="text" id="lead-name" name="name" placeholder="Your Name" required autocomplete="name" aria-label="Your name" />
-          <label class="sr-only" for="lead-email">Email address</label>
-          <input type="email" id="lead-email" name="email" placeholder="Email Address" required autocomplete="email" aria-label="Email address" />
-          <label class="sr-only" for="lead-phone">Mobile number</label>
-          <input type="tel" id="lead-phone" name="phone" placeholder="Mobile Number" required autocomplete="tel" aria-label="Mobile number" pattern="[0-9+\-() ]{8,}" />
-          <label class="sr-only" for="lead-mode">Preferred mode</label>
-          <select id="lead-mode" name="mode" required aria-label="Preferred learning mode">
-            <option value="" disabled selected>Preferred learning mode</option>
-            <option>Online (Virtual)</option>
-            <option>Offline (Classroom)</option>
-          </select>
-          <button type="submit" class="btn btn-primary">Apply for Demo &rarr;</button>
-          <p class="form-note" id="leadNote" aria-live="polite"></p>
-        </form>
+      <div class="hero-card">
+        <div class="hero-card-head">
+          <span class="title">You will write this in Week 1</span>
+          <span class="live-tag">&#9679; Live Demo</span>
+        </div>
+        <div class="hero-card-body">
+          <div class="code-block">
+            <span class="c">// Apex Trigger + Handler</span><br>
+            <span class="k">public with sharing class</span> OpportunityHandler {<br>
+            &nbsp;&nbsp;<span class="k">public static void</span> <span class="f">handleAfterInsert</span>(<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">List</span><Opportunity> opps) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">for</span> (Opportunity o : opps) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o.Description = <span class="s">"Welcome!"</span>;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;}<br>
+            }
+          </div>
+          <div class="enroll-note">
+            <div class="avatar-group">
+              <span class="avatar" aria-hidden="true">AR</span>
+              <span class="avatar" aria-hidden="true">PK</span>
+              <span class="avatar" aria-hidden="true">JM</span>
+            </div>
+            <span><strong>17 people</strong> enrolled in the last 24 hours</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>

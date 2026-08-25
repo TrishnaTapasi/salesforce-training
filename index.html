@@ -254,6 +254,9 @@
     .batch-banner .chip { background: var(--gradient); color: #fff; font-size: 12px; font-weight: 800; padding: 4px 12px; border-radius: 999px; }
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
     .plan { background: #fff; border: 1px solid var(--border); border-radius: 18px; padding: 32px; display: flex; flex-direction: column; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+    .plan.featured { text-align: center; }
+    .plan.featured ul { display: inline-block; text-align: left; }
+    .plan.featured .plan-btns { justify-content: center; }
     .plan:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
     .plan.featured { border: 2px solid var(--brand); position: relative; box-shadow: var(--shadow-lg); background: linear-gradient(180deg, #f7fcff 0%, #fff 40%); }
     

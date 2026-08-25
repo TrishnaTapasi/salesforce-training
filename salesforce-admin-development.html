@@ -1115,41 +1115,47 @@
       return true;
     }
 
-    function wireForm(form, noteEl, successMsg) {
-      form.querySelectorAll("input, select, textarea").forEach((el) => {
-        el.addEventListener("blur", () => validateField(el));
-        el.addEventListener("input", () => { if (el.classList.contains("invalid")) validateField(el); });
-      });
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        let ok = true;
-        form.querySelectorAll("input, select").forEach((el) => { if (!validateField(el)) ok = false; });
-        const mode = form.querySelector('input[name="mode"]:checked');
-        if (form.querySelector('input[name="mode"]') && !mode) { ok = false; }
-        if (!ok) {
-          const live = document.getElementById("leadErrorLive");
-          if (live) live.textContent = "Please fix the highlighted fields and try again.";
-          return;
-        }
-        noteEl.style.color = "#556575";
-        noteEl.textContent = "Submitting...";
-        fetch("/", {
-          method: "POST",
-          headers: { "Accept": "application/json" },
-          body: new FormData(form)
-        })
-          .then((res) => {
-            if (!res.ok) throw new Error("Request failed");
-            noteEl.textContent = "\u2713 " + successMsg;
-            noteEl.style.color = "#027e46";
-            form.reset();
+function wireForm(form, noteEl, successMsg) {
+        form.querySelectorAll("input, select, textarea").forEach((el) => {
+          el.addEventListener("blur", () => validateField(el));
+          el.addEventListener("input", () => { if (el.classList.contains("invalid")) validateField(el); });
+        });
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          let ok = true;
+          form.querySelectorAll("input, select").forEach((el) => { if (!validateField(el)) ok = false; });
+          const mode = form.querySelector('input[name="mode"]:checked');
+          if (form.querySelector('input[name="mode"]') && !mode) { ok = false; }
+          if (!ok) {
+            const live = document.getElementById("leadErrorLive");
+            if (live) live.textContent = "Please fix the highlighted fields and try again.";
+            return;
+          }
+          noteEl.style.color = "#556575";
+          noteEl.textContent = "Submitting...";
+          const formData = new FormData(form);
+          fetch("/", {
+            method: "POST",
+            headers: { "Accept": "application/json" },
+            body: formData
           })
-          .catch(() => {
-            noteEl.textContent = "\u2717 Oops! Something went wrong. Please try again or reach us on WhatsApp.";
-            noteEl.style.color = "#d0342c";
-          });
-      });
-    }
+            .then((res) => {
+              if (!res.ok) throw new Error("Server error: " + res.status);
+              noteEl.textContent = "\u2713 " + successMsg;
+              noteEl.style.color = "#027e46";
+              form.reset();
+            })
+            .catch((err) => {
+              console.error("Form submit error:", err);
+              if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+                noteEl.textContent = "\u2717 Forms only work on the live Netlify site. Please test on the deployed site.";
+              } else {
+                noteEl.textContent = "\u2717 Submission failed. Please try again or reach us on WhatsApp.";
+              }
+              noteEl.style.color = "#d0342c";
+            });
+        });
+      }
     wireForm(document.getElementById("leadForm"), document.getElementById("leadNote"), "Thank you! Our team will contact you within 24 hours.");
     wireForm(document.getElementById("enrollForm"), document.getElementById("enrollNote"), "Thank you! Your submission has been received.");
   </script>

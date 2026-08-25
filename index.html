@@ -175,7 +175,14 @@
     .skill-item .pct { font-size: 13.5px; font-weight: 800; color: var(--brand); }
     .bar { height: 8px; background: var(--bg-light); border-radius: 999px; overflow: hidden; }
     .bar span { display: block; height: 100%; border-radius: 999px; background: var(--gradient); transform: scaleX(0); transform-origin: left; transition: transform 1s ease; }
-    .skill-item.in-view .bar span { transform: scaleX(var(--w)); }
+.skill-item.in-view .bar span { transform: scaleX(var(--w)); }
+
+    /* Bonuses */
+    .bonus-title { margin: 28px 0 16px; font-size: 20px; color: var(--brand-dark); }
+    .bonus-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .bonus-item { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--brand); border-radius: 12px; padding: 16px 18px; box-shadow: var(--shadow); }
+    .bonus-item strong { display: block; font-size: 15px; color: var(--brand-dark); margin-bottom: 3px; }
+    .bonus-item span { font-size: 13.5px; color: var(--text-muted); }
 
     /* Projects */
     .projects { background: var(--bg-light); }
@@ -343,8 +350,8 @@
     /* Responsive */
     @media (max-width: 980px) {
       .hero-grid, .trainer-grid { grid-template-columns: 1fr; gap: 40px; }
-      .overview-grid, .why-grid, .career-grid, .projects-grid { grid-template-columns: 1fr; }
-      .skills-grid, .pricing-grid, .testimonial-grid { grid-template-columns: 1fr; }
+.overview-grid, .why-grid, .career-grid, .projects-grid { grid-template-columns: 1fr; }
+      .skills-grid, .pricing-grid, .testimonial-grid, .bonus-list { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .nav-links {
         position: fixed; inset: 72px 0 auto 0; background: #fff; flex-direction: column; gap: 4px;
@@ -573,13 +580,20 @@
             <li>SFDX, Git &amp; scratch orgs</li>
           </ul></div></div>
         </div>
-        <div class="module-card">
-          <button class="module-head" aria-expanded="false"><span class="module-num">08</span><h3>Capstone &amp; Career</h3><span class="count">3 topics</span><span class="icon" aria-hidden="true">+</span></button>
+<div class="module-card">
+          <button class="module-head" aria-expanded="false"><span class="module-num">08</span><h3>Capstone & Career</h3><span class="count">3 topics</span><span class="icon" aria-hidden="true">+</span></button>
           <div class="module-body"><div class="module-body-inner"><ul>
             <li>Full-stack capstone app</li>
-            <li>Resume &amp; LinkedIn review</li>
+            <li>Resume & LinkedIn review</li>
             <li>Mock interviews</li>
           </ul></div></div>
+        </div>
+        <h3 class="bonus-title">Included Bonuses</h3>
+        <div class="bonus-list">
+          <div class="bonus-item"><strong>Bonus - 1</strong><span>Agentforce Workshop</span></div>
+          <div class="bonus-item"><strong>Bonus - 2</strong><span>Weekend Q&A and Project Support Sessions with Sanjay Gupta</span></div>
+          <div class="bonus-item"><strong>Bonus - 3</strong><span>Consulting Skills Workshop</span></div>
+          <div class="bonus-item"><strong>Bonus - 4</strong><span>Soft Skills Workshop</span></div>
         </div>
       </div>
     </div>
